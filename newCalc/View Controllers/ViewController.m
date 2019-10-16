@@ -48,6 +48,10 @@
         case MODULO:
             calcAnswer = (double)((int)arg1 % (int)arg2);
             break;
+        case SQR:
+            calcAnswer = arg1 * arg1;
+        case ROOT:
+            calcAnswer = pow(arg1, 0.5);
         case -1:
             calcAnswer = arg1;
     }
@@ -124,16 +128,32 @@
     [self saveValueOfArg1];
     [self clearCalcAreaLabel];
 }
--(IBAction)multButton:(id)sender {  // Interface Builder action for plus (*)
+-(IBAction)minusButton:(id)sender {  // Interface Builder action for plus (+)
+    [self saveValueOfOperator:MINUS];
+    [self saveValueOfArg1];
+    [self clearCalcAreaLabel];
+}
+-(IBAction)multButton:(id)sender {  // Interface Builder action for multiply (*)
     [self saveValueOfOperator:MULTIPLY];
     [self saveValueOfArg1];
     [self clearCalcAreaLabel];
 }
--(IBAction)divideButton:(id)sender {  // Interface Builder action for plus (/)
+-(IBAction)divideButton:(id)sender {  // Interface Builder action for divide (/)
     [self saveValueOfOperator:DIVIDE];
     [self saveValueOfArg1];
     [self clearCalcAreaLabel];
-}// Interface Builder actions  for numbers and decimal
+}
+-(IBAction)squareButton:(id)sender {  // Interface Builder action for square (x^2)
+    [self saveValueOfOperator:SQR];
+    [self saveValueOfArg1];
+    [self clearCalcAreaLabel];
+}
+-(IBAction)squareRootButton:(id)sender {  // Interface Builder action for square root (√x)
+    [self saveValueOfOperator:ROOT];
+    [self saveValueOfArg1];
+    [self clearCalcAreaLabel];
+}
+// Interface Builder actions  for numbers and decimal
 //Action for 1
 -(IBAction)press1Button:(id)sender {  // Interface Builder action for (1)
     NSString *keyNumber = @"1";

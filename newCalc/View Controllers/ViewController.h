@@ -13,6 +13,8 @@
 #define MULTIPLY 2
 #define DIVIDE 3
 #define MODULO 4
+#define SQR 5
+#define ROOT 6
 
 @interface ViewController : UIViewController
 /* Section 1: Classic C style variables to support calculation */
